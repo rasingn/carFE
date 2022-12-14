@@ -5,7 +5,7 @@ import AddCar from './AddCar';
 function Cars() {
 
    const [cars,setCars]=useState([ ])
-
+   let [updateCar,setUpdateCar]=useState({});
 function addnewcarHandle(name){
     let newid=cars.length>0?cars[cars.length-1].id+1:1
     setCars(x=>{
@@ -20,12 +20,26 @@ function deletCarHandler(id){
    }))
 }
 
-function showUpdateCarHandler(){
- console.log("hi");
+function ShowupdateCarHandler(car){
+  setUpdateCar(car);
+    
    }
+
+   function updateCarHandler(car){
+    let carIndex = cars.findIndex((obj => obj.id == car.id));
+    console.log(car);
+    console.log(carIndex);
+    setUpdateCar({});
+      
+     }
+     function CancleUpdateCarHandler(){
+     
+      setUpdateCar({});
+        
+       }
     return (
       <div>
-        <div><AddCar handle={addnewcarHandle} /></div>
+        <div><AddCar addHandler={addnewcarHandle} updateHandler={updateCarHandler} car={updateCar} cancelUpdate={CancleUpdateCarHandler}/></div>
         <table className='table w-full'>
           <thead className='border-b'>
             <tr>
@@ -36,7 +50,7 @@ function showUpdateCarHandler(){
           </thead>
           <tbody>
             {cars.map((item,keys) =>{
-                return ( <Car car={item} key={keys} deletehandler={deletCarHandler}  showUpdateCarHandler={showUpdateCarHandler}/>)
+                return ( <Car car={item} key={keys} deleteHandler={deletCarHandler}  updateHandler={ShowupdateCarHandler}/>)
             })
             }
           </tbody>
