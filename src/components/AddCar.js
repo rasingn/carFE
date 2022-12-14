@@ -1,13 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
+import uniqid from 'uniqid'
  
 
 export default function AddCar({addHandler,updateHandler,cancelUpdate,car}){
     const carNameRef=useRef()
     
     function add(){
-        let n=carNameRef.current.value;
+        let newCar={}
+        newCar.id=uniqid();
+        newCar.name=carNameRef.current.value;
         carNameRef.current.value=""
-        addHandler(n);
+        addHandler(newCar);
     }
     function update(){
         car.name=carNameRef.current.value
