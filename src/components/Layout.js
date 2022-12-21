@@ -25,7 +25,7 @@ export default function Layout() {
           <NavLink to="/" className={"nav-item"}>
             Home
           </NavLink>
-          <NavLink to="/cars" className={"nav-item"}>
+          <NavLink to="/cars" className={"nav-item "}>
             Cars
           </NavLink>
           <NavLink to="game/counter" className={"nav-item"}>

@@ -1,5 +1,6 @@
 import Counter from "./components/Games/Counter";
 import Cars from "./components/Car/Cars";
+import 'animate.css';
 import {
   createBrowserRouter,
   createRoutesFromElements,
