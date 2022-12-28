@@ -1,5 +1,8 @@
 import React, { useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import Footer from "./Footer";
 
 export default function Layout() {
@@ -20,6 +23,7 @@ export default function Layout() {
 
   return (
     <div>
+        <ToastContainer />
       <header className=" p-5 ">
         <nav className="flex justify-end h-9 items-center">
           <NavLink to="/" className={"nav-item"}>
@@ -36,7 +40,7 @@ export default function Layout() {
           </NavLink>
           <button
             onClick={darkToggle}
-            className="text-white text-3xl translate  hover:scale-125 transition ease-out duration-300 hover:opacity-30 "
+            className="text-skin-inverted text-3xl translate  hover:scale-125 transition ease-out duration-300 hover:text-skin-muted "
           >
             <i className="las la-sun"></i>
           </button>

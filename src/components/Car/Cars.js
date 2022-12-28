@@ -3,7 +3,9 @@ import Car from "./Car";
 import AddCar from "./AddCar";
 import axios from "axios";
 import * as Constant from "../../Config/Constant";
+import { toast } from "react-toastify";
 function Cars() {
+
   const [cars, setCars] = useState([]);
   let [updateCar, setUpdateCar] = useState({});
 
@@ -14,9 +16,11 @@ function Cars() {
       .then((res) => {
         console.log(res);
         setCars(res.data);
+       
       })
       .catch((err) => {
         console.log(err);
+        toast.error('ops');
       });
   };
   useEffect(loadCars, []);
@@ -80,13 +84,13 @@ function Cars() {
       <table className="table w-full">
         <thead className="border-b">
           <tr>
-            <th className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+            <th className="table-th">
               id
             </th>
-            <th className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+            <th className="table-th">
               name
             </th>
-            <th className="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+            <th className="table-th">
               action
             </th>
           </tr>
